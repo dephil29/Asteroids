@@ -1,65 +1,69 @@
+var createAsteroids = require('./createAsteroids.js');
+var controls = require('./controls.js');
 // THIS IS YOUR JAVASCRIPT DOCUMENT!
 
 // GENERATE ASTEROIDS IN HTML DOCUMENT
 
-for (var i = 0; i < 100; i++) {
-
-  var asteroid = new Image();
-  asteroid.id = "asteroid" + i.toString();
-  asteroid.src = "img/asteroid.png";
-  asteroid.style.height = (((Math.random() * 6) + 0)*30);
-  asteroid.style.position = "absolute";
-  asteroid.style.top = (((Math.random() * 6) + 0)*100);
-  asteroid.style.right = -200;
-  var asteroidPosition = asteroid.style.right;
-  var asteroidID = asteroid.id;
-
-  document.body.appendChild(asteroid);
-
-}
-
+// for (var i = 0; i < 100; i++) {
+//
+//   var asteroid = new Image();
+//   asteroid.id = "asteroid" + i.toString();
+//   asteroid.src = "img/asteroid.png";
+//   asteroid.style.height = (((Math.random() * 6) + 0)*30);
+//   asteroid.style.position = "absolute";
+//   asteroid.style.top = (((Math.random() * 6) + 0)*100);
+//   asteroid.style.right = -200;
+//   var asteroidPosition = asteroid.style.right;
+//   var asteroidID = asteroid.id;
+//
+//   document.body.appendChild(asteroid);
+//
+// }
+createAsteroids();
 
 // MOVEMENT CONTROLS FOR SHIP
 
 // declare & initialize movement variables
-var xPosition = 100;
-var yPosition = 100;
-var xSpeed = 1;
-var ySpeed = 0;
-var maxSpeed = 5;
+ xPosition = 100;
+ yPosition = 100;
+ xSpeed = 1;
+ ySpeed = 0;
+ maxSpeed = 5;
 
 // declare & initialize controller variables
-var upPressed = 0;
-var downPressed = 0;
-var leftPressed = 0;
-var rightPressed = 0;
+ upPressed = 0;
+ downPressed = 0;
+ leftPressed = 0;
+ rightPressed = 0;
 
 
-function keyDown(playerKeyPress)
-{
-  var keyPressed = playerKeyPress.which;
-  if (keyPressed == 38)
-    upPressed = 1;
-  if (keyPressed == 40)
-    downPressed = 1;
-  if (keyPressed == 37)
-    leftPressed = 1;
-  if (keyPressed == 39)
-    rightPressed = 1;
-}
-
-function keyUp(playerKeyPress)
-{
-  var keyPressed = playerKeyPress.which;
-  if (keyPressed == 38)
-    upPressed = 0;
-  if (keyPressed == 40)
-    downPressed = 0;
-  if (keyPressed == 37)
-    leftPressed = 0;
-  if (keyPressed == 39)
-    rightPressed = 0;
-}
+// function keyDown(playerKeyPress)
+// {
+//   var keyPressed = playerKeyPress.which;
+//   if (keyPressed == 38)
+//     upPressed = 1;
+//   if (keyPressed == 40)
+//     downPressed = 1;
+//   if (keyPressed == 37)
+//     leftPressed = 1;
+//   if (keyPressed == 39)
+//     rightPressed = 1;
+// }
+//
+// function keyUp(playerKeyPress)
+// {
+//   var keyPressed = playerKeyPress.which;
+//   if (keyPressed == 38)
+//     upPressed = 0;
+//   if (keyPressed == 40)
+//     downPressed = 0;
+//   if (keyPressed == 37)
+//     leftPressed = 0;
+//   if (keyPressed == 39)
+//     rightPressed = 0;
+// }
+controls.keyDown()
+controls.keyUp()
 
 function slowDownX()
 {
@@ -116,8 +120,8 @@ function gameLoop()
      slowDownX();
 
      // check position of ship on screen
-     var shipBox = document.getElementById("ship").getBoundingClientRect();
 
+     //  var shipBox = document.getElementById("ship").getBoundingClientRect();
      // ASTEROID MOVEMENT
 
      // count how many times we've been through the gameLoop
